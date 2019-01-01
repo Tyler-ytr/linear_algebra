@@ -1,0 +1,412 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File: hw.tex 						   %
+% Description: LaTeX template for homework.                %
+%
+% Feel free to modify it (mainly the 'preamble' file).     %
+% Contact hfwei@nju.edu.cn (Hengfeng Wei) for suggestions. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANT NOTE: Compile this file using 'XeLaTeX' (not 'PDFLaTeX') %
+%
+% If you are using TeXLive 2016 on windows,                          %
+% you may need to check the following post:                          %
+% https://tex.stackexchange.com/q/325278/23098                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\input{preamble}  % modify this file if necessary
+
+%%%%%%%%%%%%%%%%%%%%
+\title{线性代数抢救}
+\me{殷天润}{1712*****}
+\date{2019年1月1日起}     % you can specify a date like ``2017年9月30日''.
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%
+%\noplagiarism	% always keep this
+%%%%%%%%%%%%%%%%%%%%
+\beginthishw	% begin ``this homework (hw)'' part
+
+%%%%%%%%%%
+\begin{problem}[行列式]	% NOTE: use '[]' (instead of '()' or '{}') to provide additional information
+  \begin{enumerate}
+    \item 方程组求解,Cramer法则,
+    \item n阶行列式余子式求解
+    \item n阶行列式性质
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+  
+  \begin{enumerate}
+    \item 方程组求解,Cramer法则
+    \begin{enumerate}
+      \item 找到系数矩阵记为A，行列式记为D,增广右端项,逐一替换为$D_1,D_2....D_n$,$x_i=\dfrac{D_i}{D}$
+    %  \begin{equation}  
+     %   \left\{  
+      %         \begin{array}{lr}  
+       %              x=\dfrac{3\pi}{2}(1+2t)\cos(\dfrac{3\pi}{2}(1+2t)), &  \\  
+        %             y=s, & 0\leq s\leq L,|t|\leq1.\\  
+         %            z=\dfrac{3\pi}{2}(1+2t)\sin(\dfrac{3\pi}{2}(1+2t)), &    
+          %     \end{array}  
+  %      \right.  
+  %      \end{equation} 
+    \end{enumerate}
+    \item n阶行列式余子式求解
+    \begin{enumerate}
+      \item $A_{ij}=(-1)^{i+j}M_{ij}$
+      \item $D_n=a_{11}A_{11}+....+a_{1n}A_{1n}=a_{i1}A_{i1}+......+a_{in}A_{in}$
+    \end{enumerate}
+    \item n阶行列式性质
+    \begin{enumerate}
+      \item 行列式的值等于它的转置行列式的值
+      \item (对比初等变换) 对调两行(列),差一个负号
+      \item (对比初等变换)  可以提某一行或者列的公因子到外面,注意是一行或者一列
+      \item (对比初等变换)任意一行(列)乘k加到其他行上,行列式的值不变
+      \item 两行(列)相等(或者成比例),行列式的值为0；
+      \item 定理1.2.7可以用来拆行列式,
+      $${ 
+        \left|\begin{array}{cccc} 
+            a_{11} &    a_{12}    & a_{13} \\ 
+            a_{21}+b_{21} &    a_{22}+b_{22}   & a_{23}+b_{23}\\ 
+            a_{31} &    a_{32}   & a_{33}
+        \end{array}\right| 
+        }={ 
+        \left|\begin{array}{cccc} 
+            a_{11} &    a_{12}    & a_{13} \\ 
+            a_{21} &    a_{22}  & a_{23}\\ 
+            a_{31} &    a_{32}   & a_{33}
+        \end{array}\right| 
+        }+{ 
+        \left|\begin{array}{cccc} 
+            a_{11} &    a_{12}    & a_{13} \\ 
+           b_{21} &  b_{22}   & b_{23}\\ 
+            a_{31} &    a_{32}   & a_{33}
+        \end{array}\right| 
+        }$$
+        \item $$\sum _{k=1} ^{n}a_{ik}A_{jk}=a_{i1}A_{j1}.....+a_{in}A_{jn}=   {   
+             \left\{  
+                    \begin{array}{lr}  
+                          A, & i=j \\  
+                          0, & i\neq j.\\  
+                   \end{array}  
+         \right.  
+              } $$
+    \end{enumerate}
+  \end{enumerate}
+\end{solution}
+% The ``remark'' environments (when needed) must be 
+% put before the ``solution''/``revision''/``proof'' environments.
+%\begin{remark}	% Optional
+ % 以下解答参考了书籍/网站/讲义 $\ldots$。
+
+%  \noindent 以下解答是与 XXX 同学讨论得到的。
+%\end{remark}
+%
+%\begin{solution}
+%  可使用如下命令插入图片：
+%  \begin{verbatim}
+%    \fig{width = 0.30\textwidth}{figs/hello.png}{caption}
+%    \fignocaption{width = 0.30\textwidth}{figs/hello.png}
+%  \end{verbatim}
+%  插入数学公式：
+%  \begin{verbatim}
+%    $E = mc^2$
+%  \end{verbatim}
+%  得到 $E = mc^2$。
+%  \begin{verbatim}
+%    \[
+%      E = mc^2
+%    \]
+%  \end{verbatim}
+%  得到
+%  \[
+%    E = mc^2
+%  \]
+%\end{solution}
+%%%%%%%%%%
+
+%%%%%%%%%%
+\begin{problem}[特征值]
+  \begin{enumerate}
+\item 特征值特征向量的求法,性质;
+\item 对角化
+\item 正交化的方法
+\item 实对称矩阵的对角化
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+ \begin{enumerate} 
+\item 特征值特征向量的求法与性质
+\begin{enumerate}
+  \item 相似:B=$P^{-1}AP$,B$\sim$A
+  \begin{enumerate}
+    \item |A|=|B|
+    \item $A^{-1}\sim B^{-1}$
+    \item $f(A)\sim f(B)$,f为多项式
+  \end{enumerate}
+  \item 求法显然,求到基础解系之后要线性组合起来
+  \item 若f(x)为x的多项式,那么矩阵A有特征值$\lambda $,f(A)有特征值$f(\lambda)$
+  \item 相似矩阵有相同的特征多项式，从而它们有相同的特征值,迹$\sum _{i=1}^{n} \lambda _i$,行列式$\Pi _{i=1}^{n}$
+ \end{enumerate}
+ \item 
+ \begin{enumerate}
+  \item 对角化条件是每一个$k_i$重特征值$\lambda _i$对应的特征矩阵的秩为$n-k_i$,即有$k_i$个特征向量;
+  \item 对角化过程
+  \begin{enumerate}
+    \item 解特征方程得到$\lambda _1(s_1-repeated)......\lambda _n(s_n-repeated)$
+    \item 得到基础解系,判断对角化条件
+    \item 令P=$(\alpha _{11}......\alpha_{1s}.........)$
+    \item $P^{-1}AP=diag(\lambda _1......(s_1-repeated)\lambda _2....(s2-repeated)........)$
+  \end{enumerate}
+\end{enumerate}
+\item 正交化
+\begin{enumerate}
+  \item 正交向量组必线性无关
+  \item Schmidt正交化,有一组线性无关的向量组,可构造出线性相关的一组向量组$a_1,......a_n$,可构造等价的正交向量组$b_1....b_n$;
+  \begin{enumerate}
+    \item 取$b_1=a_1\neq \theta$ 
+    \item 取$b_2=a_2-k_{21}b_1,k_{21}=\dfrac{(a_2,b_2)}{||b_1||^2}$
+    \item $b_3=a_3-k_{31}b_1-k_{32}b_2$
+    \item 迭代即可
+  \end{enumerate}
+  \item 正交矩阵A满足$A^{T}A=E$
+  \item 对称矩阵A满足$A=A^{T}$
+\end{enumerate}
+\item 实对称矩阵的对角化
+\begin{enumerate}
+  \item 实对称矩阵的特征值均为实数
+  \item 实对称矩阵一定可以对角化:因为若A为实对称矩阵,那么存在同阶正交矩阵P使$P^{T}AP$为实对角矩阵,从而实现可对角化
+  \item 求对角矩阵
+  \begin{enumerate}
+    \item 求特征值,特征向量,
+    \item 由特征向量Schmidt构造正交矩阵P(如果是实对称阵直接标准化就可以了)
+    \item $P^{T}AP=diag(\lambda _1...\lambda _n)$.
+  \end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{solution}
+\begin{problem}[实二次型]
+  \begin{enumerate}
+  \item 求标准型,规范型
+  \item 正定二次型,正定矩阵的性质
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}
+  \item 正交矩阵的方法：
+  \begin{enumerate}
+    \item 先算特征值特征向量标准正交化构成P
+    \item x=Py,f(x)=g(y)=$y^{T}\Lambda y$,$\Lambda =diag(\lambda _i..)$
+  \end{enumerate}
+  \item 配方法
+  \begin{enumerate}
+    \item 先找二次项($(x_i)^{2}$),配方,直到没有
+    \item 没有就构造 
+  \end{enumerate}
+  \item 合同变换法
+  \begin{enumerate}
+    \item B=$(A E)^{T}$
+    \item 做一次列变换,接着做一次相应的行变换,重复直至$(\Lambda P)^{T}$
+    \item x=Py;
+  \end{enumerate}
+  \item 求到的标准型整理一下,正数在前,负数在后,并且
+  
+  D=P$\cdot diag(1/\sqrt{b_{11}},.......1/\sqrt{b_{rr}}...1...1)$
+  \item 正惯性指数为得到的对角阵的正数个数,负惯性指数同理;符号差为正-负;
+  \item 在实对称的前提下考虑正定,设f(x)=$x^{T}Ax$为实二次型,若当实向量$x\neq \theta $时都有,$x^{T}Ax>0,$则称f为正定二次型,A为正定矩阵;大于等于为半正定;负正定同理
+  \item 正定矩阵的一些性质：以下四个性质对于实对称A等价
+  \begin{enumerate}
+    \item A的特征值为正,
+    \item A的正惯性指数为n
+    \item A的各阶顺序主子式均为正
+    \item A为正定矩阵
+  \end{enumerate} 
+\end{enumerate}
+\end{solution}
+%%%%%%%
+\begin{problem}[线性空间]
+\begin{enumerate}
+  \item 线性空间的定义判别(5+5)
+  \item 线性空间的性质
+  \item 基变换,坐标变换 
+  \item 子空间,交,和,直和
+  \item 线性变换
+  \item 线性变换特征值特征向量
+\end{enumerate}
+
+\end{problem}
+
+\begin{solution}
+  \begin{enumerate}
+    \item 线性空间的定义判别(5+5)
+    \begin{enumerate}
+      \item 如果加法运算封闭,即当$x,y\in V$,有唯一的$z=x+y\in V$
+      \begin{enumerate}
+        \item x+y=y+x
+        \item x+(y+z)=(x+y)+z
+        \item 存在零元素$0\in V$,x+0=x;
+        \item 存在负元素：对$\forall x \in V$,存在一个元素$y\in V$，使得x+y=0,称y为x的负元素,记为-x，x+(-x)=0；
+      \end{enumerate}
+      \item 如果数乘运算封闭,即当$x\in V,\lambda \in K,$有唯一的$\lambda x\in V$;
+        \begin{enumerate}
+          \item $(\lambda+\mu)x=\lambda x +\mu x$
+          \item $\lambda(x+y)=\lambda x+\lambda y$
+          \item $\lambda (\mu x)=(\lambda \mu)x$
+          \item $1\cdot x=x$
+        \end{enumerate}
+    \end{enumerate}
+    \item 线性代数的性质
+    \begin{enumerate}
+      \item 零元素唯一
+      \item 任一个元素的负元唯一
+      \item 
+        \begin{enumerate}
+          \item 0x=0;
+          \item (-1)x=-x;
+          \item $\lambda 0=0$;
+          \item 若$\lambda x=0$,则$\lambda =0 $或者$x=0$
+        \end{enumerate}
+    \end{enumerate}
+    \item 基变换,坐标变换
+    \begin{enumerate}
+      \item 基与基之间线性无关！！
+      \item 可以用基与坐标来表示向量,记一组基为$(\alpha _1 ,\alpha _2,...\alpha _n)$,x=$(x_1,....,x_n)$,故$\alpha = x_1\alpha _1+....+x_n \alpha _n=(\alpha _1 ,\alpha _2,...\alpha _n)x^{T}$
+      \item 变换相关:记同一个n维线性空间V里面的两组基$\alpha _1 ,\alpha _2,...\alpha _n$与$\beta _1,.....\beta _n$,有n*n的矩阵P,使得$(\beta _1.....\beta _n)=(\alpha _1 \alpha _2...\alpha _n)P$,称P为从$\alpha _1 ,\alpha _2,...\alpha _n$到$\beta _1,.....\beta _n$的过渡矩阵,有坐标变换$(y_1,y_2,.....y_n)^{T}=P^{-1}(x_1,x_2,....x_n)^{T}$
+    \end{enumerate}
+    \item 子空间
+    \begin{enumerate}
+      \item 线性空间V的一个非空子集W是V的子空间的充要条件是:对$\forall \alpha,\beta \in W, \lambda,\mu \in K,$有$\lambda \alpha +\mu \beta \in W.$
+      \item span$\{\alpha _1,....\alpha _s\}=\{\alpha :
+      \alpha =\sum _{i=1}^{s} k_i \alpha _i,~~~~~~k_i \in K,i=1,2....s\}$
+      \item dim(W)=n-r (W是齐次方程组的解空间,r是系数矩阵的秩)
+      \item $W_1 \cup W_2 =\{\alpha : \alpha \in W_1 ,\alpha \in W_2\}$
+      \item $W_1 + W_2=\{\gamma : \gamma =\alpha+\beta, \forall \alpha \in W_1,\beta \in W_2\}$
+      \item $dimW_1+dimW_2=dim(W_1+W_2)+dim(W_1\cap W_2)$
+      \item 直和
+      \begin{enumerate}
+        \item $W=W_1\oplus W_2$,$W_1$是$W_2$的补空间,反之亦然
+      \item  $W_1+W_2$是直和的条件是$W_1\cap W_2={0}$
+      \end{enumerate}
+    \end{enumerate}
+    \item 线性变换：
+    \begin{enumerate}
+      \item 从V到V的映射T满足$T(\alpha+\beta)=T\alpha +T\beta , T(\lambda \alpha)=\lambda T \alpha $
+      \item 像空间lm(T)与值域相似,表示V1到V2的映射的所有元素像的集合;核空间可以类比零点，N=N(T)=$\{\alpha :T\alpha =0',\alpha \in V_1\}$
+      \item T($\epsilon _1 \epsilon _2 ...\epsilon _n $)=($\epsilon _1....\epsilon _n$)A
+      \item 如果有从
+      $(\epsilon _1,\epsilon _2 ...,\epsilon _n )$到$(\omega _1.......\omega _n)$的过渡矩阵P,使得
+      
+      $(\omega _1.......\omega _n)=(\omega _1.......\omega _n)P$,
+
+      设T在这两组基底下的矩阵分别是A和B,那么有B=$P^{-1}AP^{1}$
+    \end{enumerate}
+    \item 线性变换的特征值和特征向量
+    \begin{enumerate}
+      \item 求法与矩阵的基本一样;
+      \item 有限维线性空间的线性变换的特征值和特征多项式与所选基底无关
+      \item 同一个线性变换T的互异个特征值的特征向量线性无关
+      \item T有最简表示的充要条件是T有n个线性无关的特征向量,等价于T有n个(包括重数)特征值,且每一个$s_i$重特征值$\lambda _i$，其对应的特征矩阵$\lambda _i E -A$的秩为$n-s_i$
+      \item 如果可以对角化,那么就用求到的特征向量组合成P，$P^{-1}AP$即可，并且令新的坐标$(\iota _1....\iota _n)=(\epsilon _1....\epsilon _n)P$
+    \end{enumerate}
+  \end{enumerate}
+\end{solution}
+\begin{problem}[内积空间]
+  \begin{enumerate}
+  \item 欧式空间的条件
+  \item 长度，范数，夹角，正交性，柯西不等式
+  \item 欧式空间标准正交基
+  \item 欧式空间正交变换
+  \end{enumerate}
+\end{problem}
+\begin{solution}
+  \begin{enumerate}
+  \item 条件：
+  \begin{enumerate}
+    \item 对称性:$(\alpha , \beta)=(\beta,\alpha)$
+    \item 可加性:$(\alpha _1+\alpha _2,\beta)=(\alpha _1,\beta)+(\alpha _2,\beta)$
+    \item 齐次性:$(\lambda \alpha ,\beta)=\lambda (\alpha ,\beta),\forall \lambda \in R$
+    \item 非负性:$(\alpha ,\alpha )\geq 0$
+  \end{enumerate}
+  \item 各种概念：
+  \begin{enumerate}
+    \item 长度:||a||=$\sqrt{(a,a)}$
+    \item 正交:(a,b)=0,a与b正交，$a\perp b$
+    \item $a\perp b$等价于$||a+b||^{2}=||a||^2+||b||^{2}$
+    \item 柯西定理:$||(a,b)||\leq ||a||\cdot ||b||$,令c=ka+b,$(c,c)\geq 0$易证
+  \end{enumerate}
+  \item 正交性
+  \begin{enumerate}
+  \item 如果欧式空间的一组非零向量两两正交,那么称他们是一个正交向量组;
+  \item 如果$a_1,......a_n$是一组正交向量组,那么它们两两线性无关；$(k_1a_1+....+k_na_n,a_i)=0$易证
+  \end{enumerate}
+  \item 标准正交基
+  \begin{enumerate}
+    \item 度量矩阵：$a_{ij}=(a_i,a_j)$,A=$(a_1....a_n)^{T}(a_1.......a_n)$,(a,b)=$X^{T}AY$
+    \item 度量矩阵正交对称(因为内积的对称性)
+    \item 欧式空间中两组不同基底下的度量矩阵是合同的(过渡矩阵参与证明)
+    \item 有从$(a_1,.....a_n)到(b_1.....b_n)$的过渡矩阵P,
+    
+    $(b_1....b_n)=(a_1....a_n)$,有$B=P^{T}AP$(定义代入即可)
+    \item 在欧式空间的一组基下的度量矩阵是单位阵的时候,称这组基是标准正交基;
+    
+    (施密特正交化构造)它是一组长度为1的正交向量组
+    
+  \end{enumerate}
+\item 正交变换:
+\begin{enumerate}
+  \item 正交变换:(T(a),T(b))=(a,b)
+  \item 充要条件：
+\begin{enumerate}
+  \item (T(x),T(x))=(x,x)
+  \item 任一组标准正交基经过T的变换之后仍然是一组标准正交基
+  \item T在任一祖标准正交基的矩阵A是正交矩阵
+\end{enumerate}
+\end{enumerate}
+  \end{enumerate}
+\end{solution}
+%%%%%%%%%%
+% \newpage  % continue in a new page
+%%%%%%%%%%
+\begin{problem}[UD: x.x]
+  假设这是一道需要证明的题目。	
+\end{problem}
+
+% \begin{remark}	
+%   Refer to book.
+% \end{remark}
+
+\begin{proof}
+  证明略。	
+\end{proof}
+%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\begincorrection	% begin the ``correction'' part (Optional)
+
+%%%%%%%%%%
+\begin{problem}[题号]
+  题目。
+\end{problem}
+
+\begin{cause}
+  简述错误原因（可选）。
+\end{cause}
+
+% Or use the ``solution'' environment
+\begin{revision}
+  正确解答。
+\end{revision}
+%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\beginfb	% begin the feedback section (Optional)
+
+你可以写：
+\begin{itemize}
+  \item 对课程及教师的建议与意见
+  \item 教材中不理解的内容
+  \item 希望深入了解的内容
+  \item 等
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%
+\end{document}
